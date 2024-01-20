@@ -1,0 +1,27 @@
+.ulStyle {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.liStyles {
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: rgb(123 177 223);
+  font-size: 1.05rem;
+  padding: 8px 18px;
+  border-radius: 12.5px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: rgb(96, 153, 203);
+}

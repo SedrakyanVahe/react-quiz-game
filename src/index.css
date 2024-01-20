@@ -1,0 +1,70 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/lato-v24-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  src: url('/fonts/lato-v24-latin-900.woff2') format('woff2');
+}
+
+body {
+  height: 100vh;
+
+  margin: 0;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 1.9rem;
+
+  color: #19191e;
+}
+
+main {
+  height: 100%;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+button {
+  outline: none;
+  border: none;
+  color: inherit;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+small {
+  color: rgb(45, 45, 55);
+  font-size: 15px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  margin: 3px;
+}

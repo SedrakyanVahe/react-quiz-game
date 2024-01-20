@@ -1,0 +1,68 @@
+.base {
+  gap: 20px;
+  transform: translateX(200%) scale(90%);
+  animation: appear 0.5s ease-out forwards;
+}
+
+.base .question {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.base .answers {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.done {
+  transform: translateX(0);
+  animation: disappear 0.5s ease-in forwards 1.5s;
+}
+
+.category {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.number {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  height: 35px;
+}
+
+.index {
+  align-self: start;
+  font-size: 22px;
+}
+
+.slash {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.total {
+  align-self: end;
+  font-size: 26px;
+}
+
+@keyframes appear {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes disappear {
+  to {
+    transform: translateX(-200%) scale(90%);
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "category": "history",
+    "correctAnswer": "France 222",
+    "id": "1",
+    "incorrectAnswers": ["Italy", "China", "Russia"],
+    "question": {
+      "text": "Which country blew up a Greenpeace ship in New Zealand?"
+    }
+  },
+  {
+    "category": "history",
+    "id": "2",
+    "correctAnswer": "North Carolina 222",
+    "incorrectAnswers": ["Virginia", "South Carolina", "Georgia"],
+    "question": {
+      "text": "In what state did black sit-ins at segregated lunch counters first start in 1960?"
+    }
+  }
+]

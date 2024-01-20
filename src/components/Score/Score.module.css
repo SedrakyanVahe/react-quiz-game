@@ -1,0 +1,47 @@
+.base {
+  gap: 15px;
+
+  opacity: 0;
+  animation: appear 0.5s ease forwards;
+}
+
+.base h1 {
+  margin-bottom: 10px;
+}
+
+.base h3 {
+  margin: 0;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  height: 200px;
+  padding: 15px;
+  margin: 20px auto;
+
+  border-radius: 10px;
+  border: 2px solid rgba(55, 55, 70, 0.4);
+
+  overflow-y: auto;
+}
+
+.restart {
+  align-self: center;
+}
+
+.result .answer span {
+  text-decoration: 2.5px underline rgb(233, 68, 68);
+}
+
+.result.correct .answer span {
+  text-decoration: 2.5px underline rgb(86, 189, 70);
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}

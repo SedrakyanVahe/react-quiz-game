@@ -1,0 +1,92 @@
+.base {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background-size: 400% 400%;
+  animation: gradient 30s ease infinite;
+
+  transition: background-color 1s ease;
+
+  --color1: #59aae0;
+  --color2: #c463eb;
+  --color3: #23d55e;
+}
+
+.base.foodanddrink {
+  --color1: #db759f;
+  --color2: #e73c59;
+  --color3: #e25171;
+}
+
+.base.geography {
+  --color1: #5aa1cf;
+  --color2: #3c78e7;
+  --color3: #44db5d;
+}
+
+.base.generalknowledge {
+  --color1: #5a66cf;
+  --color2: #5b3ce7;
+  --color3: #9a59e4;
+}
+
+.base.history {
+  --color1: #a6cf5a;
+  --color2: #f5cd4c;
+  --color3: #e08257;
+}
+
+.base.artandliterature {
+  --color1: #46eb4e;
+  --color2: #3cb1e7;
+  --color3: #2344d5;
+}
+
+.base.movies {
+  --color1: #8db9d6;
+  --color2: #91c5b1;
+  --color3: #5b6396;
+}
+
+.base.music {
+  --color1: #e0993c;
+  --color2: #e73cd0;
+  --color3: #df5c8e;
+}
+
+.base.science {
+  --color1: #5acf5a;
+  --color2: #5696ca;
+  --color3: #7623d5;
+}
+
+.base.societyandculture {
+  --color1: #4aacee;
+  --color2: #a8cebf;
+  --color3: #23d59a;
+}
+
+.base.sportandleisure {
+  --color1: #7a7c7e;
+  --color2: #e78f3c;
+  --color3: #8c49da;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

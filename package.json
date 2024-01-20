@@ -1,0 +1,35 @@
+{
+  "name": "quiz",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "lint": "npm run lint:format && npm run lint:fix ",
+    "lint:fix": "eslint ./src --ext .jsx,.js --quiet --fix --ignore-path ./.eslintignore",
+    "lint:format": "prettier  --log-level warn --write \"./**/*.{js,jsx,css,md,json}\" --ignore-path ./.prettierignore"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "2.0.1",
+    "@vercel/analytics": "^1.1.1",
+    "axios": "1.6.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-redux": "9.0.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.2.1",
+    "eslint": "8.56.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-jsx-a11y": "6.8.0",
+    "eslint-plugin-prettier": "5.1.2",
+    "eslint-plugin-react": "7.33.2",
+    "pre-commit": "1.2.2",
+    "prettier": "3.1.1",
+    "source-map": "0.7.4",
+    "vite": "5.0.10"
+  },
+  "pre-commit": "lint",
+  "license": "MIT",
+  "type": "module"
+}

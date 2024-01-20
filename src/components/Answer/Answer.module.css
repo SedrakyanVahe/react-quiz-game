@@ -1,0 +1,14 @@
+.base {
+  font-size: 1rem;
+  padding: 15px 20px;
+
+  transition: background-color 0.2s ease;
+}
+
+.base.correct {
+  background-color: rgb(112, 221, 128);
+}
+
+.base.wrong {
+  background-color: rgb(255, 138, 128);
+}

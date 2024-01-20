@@ -1,0 +1,33 @@
+.base {
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  padding: 6px 8px;
+
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.15);
+  border: 2px solid transparent;
+  border-radius: 12.5px;
+
+  box-sizing: border-box;
+}
+
+.base:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.base:active {
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.base.primary {
+  background-color: rgb(136, 223, 123);
+  font-size: 1.05rem;
+  padding: 8px 18px;
+}
+
+.base.primary:hover {
+  background-color: rgb(120, 230, 102);
+}
+
+.base.primary:active {
+  box-shadow: 0 0 2px 2px rgb(70, 200, 50);
+}
