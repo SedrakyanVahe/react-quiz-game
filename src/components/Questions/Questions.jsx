@@ -1,25 +1,45 @@
 import styles from './Questions.module.css'
-// import useClassName from '@/hooks/useClassName'
-// import Button from '@/components/Button'
+import sportData from '../../../database/sport.json'
+import historyData from '../../../database/history.json'
 
 function Questions({ category }) {
+  let data = null
+
+  if (category === 'sport') {
+    data = sportData
+  }
+
+  switch (category) {
+    case 'sport':
+      data = sportData
+      break
+    case 'history':
+      data = historyData
+      break
+    default:
+      data = sportData
+      break
+  }
 
   return (
-    // <h1>aaaaa: {category}</h1>
+    <div className={styles.questionsBox}>
+      <h2 className={styles.category} >{category}</h2>
+      <div className={styles.questions}>
+        {data.map((item) => (
+          <div key={item.id} className={styles.questionBox}>
+            <h3 className={styles.question}>
+              {item.question.text}
+            </h3>
+            <ul className={styles.answers}>
+              <li className={styles.correct}>{item.correctAnswer}</li>
 
-
-    <div className="quiz-container">
-      <div className="question">
-        Which country blew up a Greenpeace ship in New Zealand?
+              {item.incorrectAnswers.map((ans) => (
+                <li key={ans} className={styles.answer}>{ans}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
-      <ul className="answers">
-        <li className="answer">France sssssssssssssss</li>
-        <li className="answer">Italy</li>
-        <li className="answer">China</li>
-        <li className="answer">Russia</li>
-      </ul>
-
-
     </div>
   )
 }

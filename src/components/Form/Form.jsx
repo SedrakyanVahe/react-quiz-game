@@ -6,7 +6,7 @@ import FlyingBox from '@/components/FlyingBox'
 import Button from '@/components/Button'
 
 import favicon from '/favicon.svg'
-import Dropdown from '../Dropdown/Dropdown'
+import QuestionsList from '../QuestionsList/QuestionsList'
 
 function Form() {
   const dispatch = useDispatch()
@@ -39,10 +39,7 @@ function Form() {
           <h1>Questions</h1>
         </div>
 
-
-
-        <Dropdown />
-
+        <QuestionsList />
       </FlyingBox>
 
     </form>
