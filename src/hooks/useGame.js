@@ -4,6 +4,7 @@ import { shuffleArray } from '@/helper'
 import { setCards } from '@/slices/gameSlice'
 import historyData from '../../database/history.json'
 import sportData from '../../database/sport.json'
+import chapter1 from '../../database/chapter1.json'
 // TODO 
 
 function useGame() {
@@ -14,7 +15,8 @@ function useGame() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const jsonData = historyData.concat(sportData)
+    // const jsonData = historyData.concat(chapter1)
+    const jsonData = chapter1
 
     const newCards = jsonData.map(
       ({ question, correctAnswer, incorrectAnswers }, index) => {

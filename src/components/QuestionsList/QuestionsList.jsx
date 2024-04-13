@@ -2,7 +2,8 @@ import styles from './QuestionsList.module.css'
 import { showQuestionsList } from '@/slices/appSlice'
 import { useDispatch } from 'react-redux'
 
-const categories = ['history', 'sport', '333']
+// const categories = ['history', 'sport', 'ՀԱՅԱՍՏԱՆԻ ՀԱՆՐԱՊԵՏՈՒԹՅԱՆ ՍԱՀՄԱՆԱԴՐԱԿԱՆ ԻՐԱՎՈՒՆՔ']
+const categories = ['ՀԱՅԱՍՏԱՆԻ ՀԱՆՐԱՊԵՏՈՒԹՅԱՆ ՍԱՀՄԱՆԱԴՐԱԿԱՆ ԻՐԱՎՈՒՆՔ']
 
 const QuestionsList = () => {
   const dispatch = useDispatch()

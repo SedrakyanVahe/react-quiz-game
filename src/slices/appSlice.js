@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   mode: 'initial',
-  questionsCount: 2,
+  questionsCount: 100,
   startTime: 0,
   category: null
 }

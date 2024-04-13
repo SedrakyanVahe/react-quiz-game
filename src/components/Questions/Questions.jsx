@@ -1,6 +1,7 @@
 import styles from './Questions.module.css'
 import sportData from '../../../database/sport.json'
 import historyData from '../../../database/history.json'
+import chapter1 from '../../../database/chapter1.json'
 
 function Questions({ category }) {
   let data = null
