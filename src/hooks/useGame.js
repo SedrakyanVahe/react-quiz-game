@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { shuffleArray } from '@/helper'
 import { setCards } from '@/slices/gameSlice'
-import historyData from '../../database/history.json'
-import sportData from '../../database/sport.json'
+// import historyData from '../../database/history.json'
+// import sportData from '../../database/sport.json'
 import chapter1 from '../../database/chapter1.json'
-// TODO 
+// TODO
 
 function useGame() {
   const [ready, setReady] = useState(false)
@@ -27,7 +27,7 @@ function useGame() {
 
         return {
           index,
-          question: question.text,
+          question,
           answers,
           correctAnswer
         }

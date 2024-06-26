@@ -16,13 +16,10 @@ function Form() {
     dispatch(startGame())
   }
 
-  const playClassName = useClassName(styles, [
-    'play',
-  ])
+  const playClassName = useClassName(styles, ['play'])
 
   return (
     <form onSubmit={handleStartGame}>
-
       <FlyingBox className={styles.base}>
         <div className={styles.header}>
           <object data={favicon} type='image/svg+xml' aria-label='Webpage icon' />
@@ -41,7 +38,6 @@ function Form() {
 
         <QuestionsList />
       </FlyingBox>
-
     </form>
   )
 }

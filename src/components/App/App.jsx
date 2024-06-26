@@ -10,7 +10,6 @@ import { restart } from '@/slices/appSlice'
 
 const ComponentRendered = { initial: <Form />, game: <Game />, score: <Score /> }
 
-
 function App() {
   const dispatch = useDispatch()
   const mode = useSelector((state) => state.app.mode)
@@ -30,7 +29,11 @@ function App() {
     <>
       {mode === 'showQuestionsList' ? <Questions category={category} /> : null}
       <div className={className}>
-        {mode === 'initial' ? null : <button className={styles.backBtn} onClick={handleRestartGame}>Go back</button>}
+        {mode === 'initial' ? null : (
+          <button className={styles.backBtn} onClick={handleRestartGame}>
+            Go back
+          </button>
+        )}
         {ComponentRendered[mode]}
         <Footer />
       </div>

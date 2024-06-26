@@ -1,7 +1,6 @@
 import styles from './Card.module.css'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 import Answer from '@/components/Answer'
 import FlyingBox from '@/components/FlyingBox'
 import useClassName from '@/hooks/useClassName'
@@ -13,13 +12,10 @@ import failSound from '../../../public/audio/fail.mp3'
 
 function Card({ index, category, question, correctAnswer, answers = [] }) {
   const dispatch = useDispatch()
-
   const [done, setDone] = useState(false)
   const [selectedAnswer, setSelectedAnswer] = useState()
-
   const { lastCard } = useSelector(({ game }) => game)
   const { questionsCount } = useSelector(({ app }) => app)
-
   const className = useClassName(styles, ['base', done && 'done'])
 
   const handleAnswer = (label) => {
