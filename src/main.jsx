@@ -10,7 +10,9 @@ const container = document.querySelector('main')
 const root = createRoot(container)
 root.render(
   <Provider store={store}>
-    <App />
+    <div className='container'>
+      <App />
+    </div>
     <Analytics mode='production' />
   </Provider>
 )

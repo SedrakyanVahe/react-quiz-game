@@ -3,9 +3,12 @@ import styles from './Footer.module.css'
 function Footer() {
   return (
     <div className={styles.base}>
-      <a href='https://github.com' target='_blank' rel='noreferrer'>
-        Vahe
-      </a>
+      <span>
+        Powered by&nbsp;
+        <a href='https://github.com/SedrakyanVahe/' target='_blank' rel='noreferrer'>
+          Vahe
+        </a>
+      </span>
     </div>
   )
 }

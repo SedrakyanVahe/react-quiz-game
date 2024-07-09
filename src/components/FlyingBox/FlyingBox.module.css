@@ -1,19 +1,15 @@
 .base {
   background-color: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(5px);
-
   width: 550px;
-  margin: 0 auto;
-  padding: 30px 50px;
-
+  padding: 60px 20px 120px 20px;
   border-radius: 35px;
-
   display: flex;
   flex-direction: column;
-
   box-sizing: border-box;
   box-shadow: 0 0 10px 2px rgba(60, 60, 60, 0.2);
   margin-bottom: 30px;
+  overflow: scroll;
+  max-height: 90vh;
 }
 
 .base h1 {
@@ -33,6 +29,13 @@
 @media (max-width: 600px) {
   .base {
     width: 90vw;
-    padding: 30px;
+  }
+
+  .base h3 {
+    font-size: 0.9rem;
+  }
+
+  .base button {
+    font-size: 0.8rem;
   }
 }

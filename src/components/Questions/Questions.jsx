@@ -1,26 +1,27 @@
 import styles from './Questions.module.css'
-// import sportData from '../../../database/sport.json'
-// import historyData from '../../../database/history.json'
 import chapter1 from '../../../database/chapter1.json'
+import chapter2 from '../../../database/chapter2.json'
+import chapter3 from '../../../database/chapter3.json'
+import chapter4 from '../../../database/chapter4.json'
+import chapter5 from '../../../database/chapter5.json'
+import chapter6 from '../../../database/chapter6.json'
+import chapter7 from '../../../database/chapter7.json'
+import chapter8 from '../../../database/chapter8.json'
 
 function Questions({ category }) {
-  let data = chapter1
+  const dataMap = {
+    'ՀԱՅԱՍՏԱՆԻ ՀԱՆՐԱՊԵՏՈՒԹՅԱՆ ՍԱՀՄԱՆԱԴՐԱԿԱՆ ԻՐԱՎՈՒՆՔ': chapter1,
+    '«ՄԱՐԴՈՒ ԻՐԱՎՈՒՆՔՆԵՐԻ ԵՎ ՀԻՄՆԱՐԱՐ ԱԶԱՏՈՒԹՅՈՒՆՆԵՐԻ ՊԱՇՏՊԱՆՈՒԹՅԱՆ ՄԱՍԻՆ» ԵՎՐՈՊԱԿԱՆ ԿՈՆՎԵՆՑԻԱ (ՆԵՐԱՌՅԱԼ ՄԱՐԴՈՒ ԻՐԱՎՈՒՆՔՆԵՐԻ ԵՎՐՈՊԱԿԱՆ ԴԱՏԱՐԱՆԻ ՈՐՈՇՈՒՄՆԵՐ)':
+      chapter2,
+    'ՀԱՅԱՍՏԱՆԻ ՀԱՆՐԱՊԵՏՈՒԹՅԱՆ ՔԱՂԱՔԱՑԻԱԿԱՆ ԻՐԱՎՈՒՆՔ': chapter3,
+    'ՀԱՅԱՍՏԱՆԻ ՀԱՆՐԱՊԵՏՈՒԹՅԱՆ ՔԱՂԱՔԱՑԻԱԿԱՆ ԴԱՏԱՎԱՐՈՒԹՅԱՆ ԻՐԱՎՈՒՆՔ': chapter4,
+    'ՀԱՅԱՍՏԱՆԻ ՀԱՆՐԱՊԵՏՈՒԹՅԱՆ ՔՐԵԱԿԱՆ ԻՐԱՎՈՒՆՔ': chapter5,
+    'ՀԱՅԱՍՏԱՆԻ ՀԱՆՐԱՊԵՏՈՒԹՅԱՆ ՔՐԵԱԿԱՆ ԴԱՏԱՎԱՐՈՒԹՅԱՆ ԻՐԱՎՈՒՆՔ': chapter6,
+    'ՀԱՅԱՍՏԱՆԻ ՀԱՆՐԱՊԵՏՈՒԹՅԱՆ ՎԱՐՉԱԿԱՆ ԻՐԱՎՈՒՆՔ': chapter7,
+    'ՀԱՅԱՍՏԱՆԻ ՀԱՆՐԱՊԵՏՈՒԹՅԱՆ ՎԱՐՉԱԿԱՆ ԴԱՏԱՎԱՐՈՒԹՅԱՆ ԻՐԱՎՈՒՆՔ': chapter8
+  }
 
-  // if (category === 'sport') {
-  //   data = sportData
-  // }
-
-  // switch (category) {
-  //   case 'sport':
-  //     data = sportData
-  //     break
-  //   case 'history':
-  //     data = historyData
-  //     break
-  //   default:
-  //     data = sportData
-  //     break
-  // }
+  const data = dataMap[category] || chapter1
 
   return (
     <div className={styles.questionsBox}>

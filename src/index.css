@@ -68,3 +68,8 @@ small {
 ::-webkit-scrollbar-track {
   margin: 3px;
 }
+
+.container {
+  max-width: 1440px;
+  margin: 120px auto;
+}

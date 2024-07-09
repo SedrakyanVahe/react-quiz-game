@@ -4,7 +4,6 @@ import useClassName from '@/hooks/useClassName'
 import { startGame } from '@/slices/appSlice'
 import FlyingBox from '@/components/FlyingBox'
 import Button from '@/components/Button'
-
 import favicon from '/favicon.svg'
 import QuestionsList from '../QuestionsList/QuestionsList'
 
@@ -30,14 +29,14 @@ function Form() {
         </div>
       </FlyingBox>
 
-      <FlyingBox className={styles.base}>
+      {/* <FlyingBox className={styles.base}>
         <div className={styles.header}>
           <object data={favicon} type='image/svg+xml' aria-label='Webpage icon' />
           <h1>Questions</h1>
         </div>
 
         <QuestionsList />
-      </FlyingBox>
+      </FlyingBox> */}
     </form>
   )
 }
