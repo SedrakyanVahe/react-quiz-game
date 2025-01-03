@@ -1,6 +1,6 @@
-import styles from './QuestionsList.module.css'
-import { showQuestionsList } from '@/slices/appSlice'
 import { useDispatch } from 'react-redux'
+import styles from './QuestionsList.module.css'
+import { setChapter, showQuestionsList } from '@/slices/appSlice'
 
 const categories = [
   'ՀԱՅԱՍՏԱՆԻ ՀԱՆՐԱՊԵՏՈՒԹՅԱՆ ՍԱՀՄԱՆԱԴՐԱԿԱՆ ԻՐԱՎՈՒՆՔ',
@@ -13,19 +13,30 @@ const categories = [
   'ՀԱՅԱՍՏԱՆԻ ՀԱՆՐԱՊԵՏՈՒԹՅԱՆ ՎԱՐՉԱԿԱՆ ԴԱՏԱՎԱՐՈՒԹՅԱՆ ԻՐԱՎՈՒՆՔ'
 ]
 
-const QuestionsList = () => {
+const QuestionsList = ({ action }) => {
   const dispatch = useDispatch()
 
   const handleReadQuestions = (category) => {
     dispatch(showQuestionsList(category))
   }
 
+  const handlePlayGame = (category, index) => {
+    dispatch(setChapter(`chapter${index + 1}`))
+  }
+
   return (
     <div className={styles.container}>
       <ul className={styles.ulStyle}>
-        {categories.map((category) => (
+        {categories.map((category, i) => (
           <li className={styles.liStyles} key={category}>
-            <button className={styles.btn} onClick={() => handleReadQuestions(category)}>
+            <button
+              className={styles.btn}
+              onClick={() =>
+                action === 'play'
+                  ? handlePlayGame(category, i)
+                  : handleReadQuestions(category)
+              }
+            >
               {category}
             </button>
           </li>

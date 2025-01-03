@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { shuffleArray } from '@/helper'
 import { setCards } from '@/slices/gameSlice'
+import { setQuestionsCount } from '@/slices/appSlice'
 import chapter1 from '../../database/chapter1.json'
 import chapter2 from '../../database/chapter2.json'
 import chapter3 from '../../database/chapter3.json'
@@ -13,42 +14,29 @@ import chapter8 from '../../database/chapter8.json'
 
 function useGame() {
   const [ready, setReady] = useState(false)
-  const {
-    game: { currentCard }
-  } = useSelector((state) => state)
+  const currentCard = useSelector((state) => state.game.currentCard)
+  const chapter = useSelector((state) => state.app.chapter)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const shuffleAndSelectQuestions = (chapter, count) => {
-      if (!Array.isArray(chapter)) {
-        console.error('Invalid chapter data:', chapter)
-        return []
-      }
-      const shuffledChapter = shuffleArray([...chapter])
-      return shuffledChapter.slice(0, count)
+    const chapters = {
+      chapter1,
+      chapter2,
+      chapter3,
+      chapter4,
+      chapter5,
+      chapter6,
+      chapter7,
+      chapter8
     }
 
-    const chapter1Questions = shuffleAndSelectQuestions(chapter1, 5)
-    const chapter2Questions = shuffleAndSelectQuestions(chapter2, 5)
-    const chapter3Questions = shuffleAndSelectQuestions(chapter3, 5)
-    const chapter4Questions = shuffleAndSelectQuestions(chapter4, 5)
-    const chapter5Questions = shuffleAndSelectQuestions(chapter5, 5)
-    const chapter6Questions = shuffleAndSelectQuestions(chapter6, 5)
-    const chapter7Questions = shuffleAndSelectQuestions(chapter7, 5)
-    const chapter8Questions = shuffleAndSelectQuestions(chapter8, 5)
+    if (!chapter || !chapters[chapter]) return
 
-    const allQuestions = [
-      ...chapter1Questions,
-      ...chapter2Questions,
-      ...chapter3Questions,
-      ...chapter4Questions,
-      ...chapter5Questions,
-      ...chapter6Questions,
-      ...chapter7Questions,
-      ...chapter8Questions
-    ]
+    const selectedQuestions = chapters[chapter]
+    const shuffledQuestions = shuffleArray(selectedQuestions)
+    dispatch(setQuestionsCount(selectedQuestions.length))
 
-    const newCards = allQuestions.map(
+    const newCards = shuffledQuestions.map(
       ({ question, correctAnswer, incorrectAnswers }, index) => {
         if (incorrectAnswers.length > 3) incorrectAnswers.splice(3)
 
@@ -66,7 +54,7 @@ function useGame() {
 
     setReady(true)
     dispatch(setCards(newCards))
-  }, [dispatch])
+  }, [chapter, dispatch])
 
   return { ready, currentCard }
 }

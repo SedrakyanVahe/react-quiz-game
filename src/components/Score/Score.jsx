@@ -16,8 +16,8 @@ function Score() {
   const correctAnswer = results.filter(({ correct }) => correct).length
 
   const elapsedTime = (performance.now() - startTime) / 1000
-  let score = (correctAnswer / results.length) * (results.length * 10 - elapsedTime)
-  score = score >= 0 ? score : correctAnswer / results.length
+  // let score = (correctAnswer / results.length) * (results.length * 10 - elapsedTime)
+  // score = score >= 0 ? score : correctAnswer / results.length
 
   const handleRestartGame = () => {
     dispatch(restart())
@@ -25,11 +25,11 @@ function Score() {
 
   return (
     <FlyingBox className={styles.base}>
-      <h1>Score: {score.toFixed(1)}</h1>
+      {/* <h1>Score: {score.toFixed(1)}</h1> */}
       <h3>
-        Correct answers: {correctAnswer}/{questionsCount}
+        Ճիշտ պատասխանները: {correctAnswer}/{questionsCount}
       </h3>
-      <h3>Time elapsed: {elapsedTime.toFixed(1)}s</h3>
+      <h3>Ժամանակ: {elapsedTime.toFixed(1)}s</h3>
       <div className={styles.results}>
         {results.map(({ correct, answer, card }, i) => (
           <Result key={i} number={i + 1} correct={correct} answer={answer} {...card} />
@@ -37,7 +37,7 @@ function Score() {
       </div>
       <div className={styles.restart}>
         <Button primary onClick={handleRestartGame}>
-          Play again
+          Փորձել կրկին
         </Button>
       </div>
     </FlyingBox>
@@ -50,14 +50,14 @@ function Result({ question, number, answer, correctAnswer, correct }) {
   return (
     <div className={className}>
       <div>
-        <b>Question {number}:</b> {question}
+        <b>Հարց {number}:</b> {question}
       </div>
       <div className={styles.answer}>
-        <b>Your answer:</b> <span>{answer}</span>
+        <b>Ձեր պատասխանը:</b> <span>{answer}</span>
       </div>
       {!correct && (
         <div>
-          <b>Correct answer:</b> {correctAnswer}
+          <b>Ճիշտ պատասխանը:</b> {correctAnswer}
         </div>
       )}
     </div>

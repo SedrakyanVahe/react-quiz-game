@@ -2,9 +2,10 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   mode: 'initial',
-  questionsCount: 40,
+  questionsCount: 0,
   startTime: 0,
-  category: null
+  category: null,
+  chapter: null
 }
 
 export const appSlice = createSlice({
@@ -24,13 +25,28 @@ export const appSlice = createSlice({
       state.mode = 'initial'
     },
 
+    setQuestionsCount: (state, action) => {
+      state.questionsCount = action.payload
+    },
+
     showQuestionsList: (state, action) => {
       state.mode = 'showQuestionsList'
       state.category = action.payload
+    },
+
+    setChapter: (state, action) => {
+      state.chapter = action.payload
     }
   }
 })
 
-export const { startGame, endGame, restart, showQuestionsList } = appSlice.actions
+export const {
+  startGame,
+  endGame,
+  restart,
+  setQuestionsCount,
+  showQuestionsList,
+  setChapter
+} = appSlice.actions
 
 export default appSlice.reducer

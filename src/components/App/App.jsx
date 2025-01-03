@@ -7,7 +7,6 @@ import useClassName from '@/hooks/useClassName'
 import Footer from '@/components/Footer'
 import Questions from '@/components/Questions'
 import { restart } from '@/slices/appSlice'
-
 const ComponentRendered = { initial: <Form />, game: <Game />, score: <Score /> }
 
 function App() {
@@ -31,7 +30,7 @@ function App() {
       <div className={className}>
         {mode === 'initial' ? null : (
           <button className={styles.backBtn} onClick={handleRestartGame}>
-            Go back
+            Վերադառնալ
           </button>
         )}
         {ComponentRendered[mode]}

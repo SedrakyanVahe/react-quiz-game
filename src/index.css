@@ -21,16 +21,15 @@ body {
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.9rem;
-
   color: #19191e;
 }
 
 main {
   height: 100%;
+  overflow-x: auto;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -72,4 +71,11 @@ small {
 .container {
   max-width: 1440px;
   margin: 120px auto;
+}
+
+@media screen and (max-width: 600px) {
+  h1,
+  h2 {
+    font-size: 14px !important;
+  }
 }

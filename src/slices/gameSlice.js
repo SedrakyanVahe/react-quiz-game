@@ -17,12 +17,14 @@ export const gameSlice = createSlice({
       state.lastCard = false
       state.results = []
     },
+
     answerCard: (state, action) => {
       const result = {
         card: state.currentCard,
         answer: action.payload,
         correct: action.payload === state.currentCard.correctAnswer
       }
+
       state.results.push(result)
 
       if (state.lastCard) return

@@ -18,21 +18,23 @@ function Form() {
   const playClassName = useClassName(styles, ['play'])
 
   return (
-    <form onSubmit={handleStartGame}>
+    <form className={styles.main} onSubmit={handleStartGame}>
       <FlyingBox className={styles.base}>
         <div className={styles.header}>
           <object data={favicon} type='image/svg+xml' aria-label='Webpage icon' />
-          <h1>Quiz Game</h1>
+          <h1>ՀՀ սահմանադրություն</h1>
         </div>
-        <div className={playClassName}>
-          <Button primary>Start Game</Button>
-        </div>
+
+        <QuestionsList action={'play'} />
+        {/* <div className={playClassName}>
+          <Button primary>Սկսել</Button>
+        </div> */}
       </FlyingBox>
 
       {/* <FlyingBox className={styles.base}>
         <div className={styles.header}>
           <object data={favicon} type='image/svg+xml' aria-label='Webpage icon' />
-          <h1>Questions</h1>
+          <h1>Հարցեր</h1>
         </div>
 
         <QuestionsList />

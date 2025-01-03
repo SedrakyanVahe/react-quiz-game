@@ -1,7 +1,14 @@
+.main {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 32px;
+}
+
 .base {
   gap: 10px;
   width: 100px;
-
+  padding: 12px;
   opacity: 0;
   animation: appear 0.5s ease forwards;
 }
