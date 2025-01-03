@@ -55,6 +55,10 @@
   font-size: 26px;
 }
 
+.finish {
+  align-self: center;
+}
+
 @keyframes appear {
   to {
     transform: translateX(0);

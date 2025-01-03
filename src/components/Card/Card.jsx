@@ -9,6 +9,7 @@ import { endGame } from '@/slices/appSlice'
 import { playSound } from '@/helper'
 import successSound from '../../../public/audio/success.mp3'
 import failSound from '../../../public/audio/fail.mp3'
+import Button from '../Button'
 
 function Card({ index, category, question, correctAnswer, answers = [] }) {
   const dispatch = useDispatch()
@@ -34,6 +35,10 @@ function Card({ index, category, question, correctAnswer, answers = [] }) {
     }, 1000)
   }
 
+  const finishGame = () => {
+    dispatch(endGame())
+  }
+
   return (
     <FlyingBox className={className}>
       <div className={styles.number}>
@@ -57,6 +62,12 @@ function Card({ index, category, question, correctAnswer, answers = [] }) {
             onClick={() => handleAnswer(label)}
           />
         ))}
+      </div>
+
+      <div className={styles.finish}>
+        <Button primary onClick={finishGame}>
+          Ավարտել
+        </Button>
       </div>
     </FlyingBox>
   )
