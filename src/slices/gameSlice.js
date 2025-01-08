@@ -34,10 +34,16 @@ export const gameSlice = createSlice({
       state.currentCard = newCard
 
       if (index === state.cards.length - 2) state.lastCard = true
+    },
+
+    setCurrentCard: (state, action) => {
+      const index = action.payload
+      const newCard = state.cards[index]
+      state.currentCard = newCard
     }
   }
 })
 
-export const { setCards, answerCard } = gameSlice.actions
+export const { setCards, answerCard, setCurrentCard } = gameSlice.actions
 
 export default gameSlice.reducer

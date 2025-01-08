@@ -46,6 +46,14 @@
   font-size: 22px;
 }
 
+.indexInput {
+  width: 80px;
+  height: 32px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  font-size: 22px;
+}
+
 .slash {
   font-weight: 700;
   font-size: 32px;

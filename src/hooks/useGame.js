@@ -33,10 +33,10 @@ function useGame() {
     if (!chapter || !chapters[chapter]) return
 
     const selectedQuestions = chapters[chapter]
-    const shuffledQuestions = shuffleArray(selectedQuestions)
+    // const shuffledQuestions = shuffleArray(selectedQuestions)
     dispatch(setQuestionsCount(selectedQuestions.length))
 
-    const newCards = shuffledQuestions.map(
+    const newCards = selectedQuestions.map(
       ({ question, correctAnswer, incorrectAnswers }, index) => {
         if (incorrectAnswers.length > 3) incorrectAnswers.splice(3)
 

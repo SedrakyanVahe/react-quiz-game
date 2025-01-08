@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Answer from '@/components/Answer'
 import FlyingBox from '@/components/FlyingBox'
 import useClassName from '@/hooks/useClassName'
-import { answerCard } from '@/slices/gameSlice'
+import { answerCard, setCurrentCard } from '@/slices/gameSlice'
 import { endGame } from '@/slices/appSlice'
 import { playSound } from '@/helper'
 import successSound from '../../../public/audio/success.mp3'
@@ -15,6 +15,8 @@ function Card({ index, category, question, correctAnswer, answers = [] }) {
   const dispatch = useDispatch()
   const [done, setDone] = useState(false)
   const [selectedAnswer, setSelectedAnswer] = useState()
+  const [editMode, setEditMode] = useState(false)
+  const [tempIndex, setTempIndex] = useState(index + 1)
   const { lastCard } = useSelector(({ game }) => game)
   const { questionsCount } = useSelector(({ app }) => app)
   const className = useClassName(styles, ['base', done && 'done'])
@@ -39,10 +41,57 @@ function Card({ index, category, question, correctAnswer, answers = [] }) {
     dispatch(endGame())
   }
 
+  const handleIndexClick = () => {
+    setEditMode(true)
+  }
+
+  const handleIndexChange = (e) => {
+    if (e.target.value > questionsCount - 1) {
+      e.target.value = questionsCount - 1
+    }
+
+    setTempIndex(e.target.value)
+  }
+
+  const handleIndexBlur = () => {
+    const newIndex = parseInt(tempIndex, 10)
+
+    if (!isNaN(newIndex) && newIndex > 0 && newIndex <= questionsCount) {
+      dispatch(setCurrentCard(newIndex - 1))
+    }
+
+    setEditMode(false)
+  }
+
+  const handleIndexKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleIndexBlur()
+    }
+  }
+
   return (
     <FlyingBox className={className}>
       <div className={styles.number}>
-        <span className={styles.index}>{index + 1}</span>
+        {editMode ? (
+          <input
+            type='number'
+            className={styles.indexInput}
+            value={tempIndex}
+            max={questionsCount - 1}
+            onChange={handleIndexChange}
+            onBlur={handleIndexBlur}
+            onKeyDown={handleIndexKeyDown}
+            autoFocus
+          />
+        ) : (
+          <span
+            className={styles.index}
+            id='currentQuestionIndex'
+            onClick={handleIndexClick}
+          >
+            {index + 1}
+          </span>
+        )}
         <span className={styles.slash}>/</span>
         <span className={styles.total}>{questionsCount}</span>
       </div>

@@ -33,7 +33,7 @@
 }
 
 .result .answer span {
-  text-decoration: 2.5px underline rgb(233, 68, 68);
+  color: red;
 }
 
 .result.correct .answer span {

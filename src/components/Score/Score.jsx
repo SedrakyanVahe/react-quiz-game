@@ -14,6 +14,7 @@ function Score() {
   } = useSelector((state) => state)
 
   const correctAnswer = results.filter(({ correct }) => correct).length
+  const wrongAnswer = results.filter(({ correct }) => !correct).length
 
   const elapsedTime = (performance.now() - startTime) / 1000
   // let score = (correctAnswer / results.length) * (results.length * 10 - elapsedTime)
@@ -26,14 +27,19 @@ function Score() {
   return (
     <FlyingBox className={styles.base}>
       {/* <h1>Score: {score.toFixed(1)}</h1> */}
-      <h3>
-        Ճիշտ պատասխանները: {correctAnswer}/{questionsCount}
-      </h3>
+      <h3>Հարցերի քանակ: {questionsCount}</h3>
+      <h3>Ճիշտ պատասխանները: {correctAnswer}</h3>
+      <h3>Սխալ պատասխանները: {wrongAnswer}</h3>
+
       <h3>Ժամանակ: {elapsedTime.toFixed(1)}s</h3>
       <div className={styles.results}>
-        {results.map(({ correct, answer, card }, i) => (
-          <Result key={i} number={i + 1} correct={correct} answer={answer} {...card} />
-        ))}
+        {wrongAnswer == 0 ? (
+          <h3>Դուք չունեք սխալ պատասխաններ ✅</h3>
+        ) : (
+          results.map(({ correct, answer, card }, i) => (
+            <Result key={i} number={i + 1} correct={correct} answer={answer} {...card} />
+          ))
+        )}
       </div>
       <div className={styles.restart}>
         <Button primary onClick={handleRestartGame}>
@@ -48,19 +54,22 @@ function Result({ question, number, answer, correctAnswer, correct }) {
   const className = useClassName(styles, ['result', correct && 'correct'])
 
   return (
-    <div className={className}>
-      <div>
-        <b>Հարց {number}:</b> {question}
-      </div>
-      <div className={styles.answer}>
-        <b>Ձեր պատասխանը:</b> <span>{answer}</span>
-      </div>
+    <>
       {!correct && (
-        <div>
-          <b>Ճիշտ պատասխանը:</b> {correctAnswer}
+        <div className={className}>
+          <div>
+            <b>Հարց {number}:</b> {question}
+          </div>
+          <div className={styles.answer}>
+            <b>Ձեր պատասխանը:</b> <span>{answer}</span>
+          </div>
+
+          <div>
+            <b>Ճիշտ պատասխանը:</b> {correctAnswer}
+          </div>
         </div>
       )}
-    </div>
+    </>
   )
 }
 
